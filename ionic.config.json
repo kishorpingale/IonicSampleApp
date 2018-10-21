@@ -4,5 +4,10 @@
     "cordova": {}
   },
   "type": "ionic-angular",
-  "pro_id": "bc8a7394"
+  "pro_id": "bc8a7394",
+  "proxies": [
+    {
+        "path": "/api",
+        "proxyUrl": "http://test.cogitate.us/"
+    }]
 }
