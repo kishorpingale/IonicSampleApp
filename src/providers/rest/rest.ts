@@ -1,6 +1,5 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/map'
 
@@ -26,7 +25,7 @@ export class RestProvider {
     // headers.append('Accept','application/json');
     return this.http.get(this.baseUrl + '/Orders')
     .do((res: Response) => console.log(res))
-    .map((res: Response) => res.json());
+    //.map((res: Response) => res.json());
   }
 
  }
