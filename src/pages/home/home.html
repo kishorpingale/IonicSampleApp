@@ -1,16 +1,17 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ordered List
+      Orders
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<ion-list inset>
-  <ion-item *ngFor="let order of orderedItems">
-    <h2>{{order.name}}</h2>
-    <p>{{order.size}}</p>
-  </ion-item>
-</ion-list>
+  <ion-list *ngFor="let orders of orderList.products">
+    <ion-avatar item-start>
+      <img width="50" height="50" src= {{orders.photo}}>
+    </ion-avatar>
+    <ion-item>{{orders.name}} {{orders.size}}
+    </ion-item>
+  </ion-list>
 </ion-content>

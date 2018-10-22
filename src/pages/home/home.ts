@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { RestProvider } from '../../providers/rest/rest'
+import { RestProvider } from '../../providers/rest/rest';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-home',
@@ -8,13 +9,13 @@ import { RestProvider } from '../../providers/rest/rest'
 })
 export class HomePage {
 
-  orderedItems : any;
+  orderList = [];
 
   constructor(public navCtrl: NavController, private restProvider: RestProvider) {
     this.getOrders();
   }
 
   getOrders() {
-    this.restProvider.getOrders().subscribe(data=> console.log(data));
+    this.restProvider.getOrders().subscribe(data=> this.orderList = data);
   }
 }

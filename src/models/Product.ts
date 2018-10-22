@@ -4,4 +4,8 @@ export class Product {
     photo: string;
     status: string;
     charges: number;
+
+    constructor(values: Object = {}) {
+        Object.assign(this, values);
+    }
 }

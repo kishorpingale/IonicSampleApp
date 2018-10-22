@@ -1,8 +1,7 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/map'
-
 /*
   Generated class for the RestProvider provider.
 
@@ -24,8 +23,27 @@ export class RestProvider {
     // headers.append('Content-Type','application/json; charset=utf-8');
     // headers.append('Accept','application/json');
     return this.http.get(this.baseUrl + '/Orders')
-    .do((res: Response) => console.log(res))
-    //.map((res: Response) => res.json());
+    .do(this.logResponse)
+    .map(this.extractData)
+    // .subscribe(res => console.log(res));
+        // .subscribe(res => <any>res)
+    //         .catch(this.handleError);
   }
 
+  getProducts() {
+    return this.http.get(this.baseUrl + '/Products')
+    .do(this.logResponse)
+    .map(this.extractData);
+    
+        // .subscribe(res => <any>res)
+    //         .catch(this.handleError);
+  }
+
+  private logResponse(res: Response) {
+    console.log(res);
+  }
+
+  private extractData(res: Response) {
+    return res;
+  }
  }
