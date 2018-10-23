@@ -16,13 +16,11 @@
       <ion-thumbnail item-start>
         <img src= {{order.photo}}>
       </ion-thumbnail>
-      <h2> {{order.name}}</h2>
-      <h3>Size {{order.size}}</h3>
-      <h3>Status {{order.status}}</h3>
-      <h3>Charges {{order.charges}}</h3>
+      <h2 ion-text color="primary"> {{order.name}}</h2>
+      <h3 ion-text color="secondary">Size {{order.size}}</h3>
     </ion-item>
   </ion-list>
 
-  <button ion-button color="dark">Status of Orders</button>
+  <button ion-button (click)="statusPage()">Status of Orders</button>
 
 </ion-content>

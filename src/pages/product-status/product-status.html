@@ -1,0 +1,28 @@
+<!--
+  Generated template for the ProductStatusPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ProductStatus</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list *ngFor="let product of productList.products">
+      <ion-item> 
+        <ion-thumbnail item-start>
+          <img src= {{product.photo}}>
+        </ion-thumbnail>
+        <h2 ion-text color="primary"> {{product.name}}</h2>
+        <h2 ion-text color="secondary">Size: {{product.size}}</h2>
+        <h3 ion-text color="secondary">Status: {{product.status}}</h3>
+        <h3 ion-text color="secondary">Charges: {{product.charges}}</h3>
+      </ion-item>
+    </ion-list>
+</ion-content>

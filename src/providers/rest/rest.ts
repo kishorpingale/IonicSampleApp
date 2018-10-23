@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/Rx';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+
 // import { Observable } from 'rxjs/Observable';
 /*
   Generated class for the RestProvider provider.
@@ -28,7 +30,7 @@ export class RestProvider {
     return this.http.get(this.baseUrl + '/Orders')
     .do(this.logResponse)
     .map(this.extractData)
-    // .catch(this.handleError);
+    .catch(this.handleError);
     // .subscribe(res => console.log(res));
         // .subscribe(res => <any>res)
     //         .catch(this.handleError);
@@ -38,7 +40,7 @@ export class RestProvider {
     return this.http.get(this.baseUrl + '/Products')
     .do(this.logResponse)
     .map(this.extractData)
-    // .catch(this.handleError);
+    .catch(this.handleError);
   }
 
   private logResponse(res: Response) {
@@ -49,9 +51,13 @@ export class RestProvider {
     return res;
   }
 
-  // private handleError(error) {
-  //   console.error(error);
-  //   return Observable.throw("Error in x service");
-  //   //  Observable.throw(error || 'Server error');
-  // }
+  private handleError(error) {
+    console.error(error);
+      console.log('error within catch is ' + Response)
+      if(error.status === 404)
+        return Observable.throw("Not found error");
+
+      return Observable.throw("getOrders " + error);
+    //  Observable.throw(error || 'Server error');
+  }
  }

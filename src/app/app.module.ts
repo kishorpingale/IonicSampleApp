@@ -8,11 +8,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RestProvider } from '../providers/rest/rest';
+import { ProductStatusPage } from '../pages/product-status/product-status';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ProductStatusPage
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { RestProvider } from '../providers/rest/rest';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ProductStatusPage
   ],
   providers: [
     StatusBar,
