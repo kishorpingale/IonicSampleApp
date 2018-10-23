@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { ProductStatusPage } from '../product-status/product-status';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
@@ -30,8 +29,6 @@ export class HomePage {
   // }
 
   private getOrders() {
-    // this.restProvider.getOrders().subscribe(data=> this.orderList = data);
-
       this.restProvider.getOrders().subscribe(data=> {this.orderList = data},
         err => {console.error('Error:', err.message);
                 this.loader.dismiss()},

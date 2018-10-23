@@ -31,9 +31,6 @@ export class RestProvider {
     .do(this.logResponse)
     .map(this.extractData)
     .catch(this.handleError);
-    // .subscribe(res => console.log(res));
-        // .subscribe(res => <any>res)
-    //         .catch(this.handleError);
   }
 
   getProducts() {
@@ -57,7 +54,6 @@ export class RestProvider {
       if(error.status === 404)
         return Observable.throw("Not found error");
 
-      return Observable.throw("getOrders " + error);
-    //  Observable.throw(error || 'Server error');
+      return Observable.throw("handleError " + error);
   }
  }
