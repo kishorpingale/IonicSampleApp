@@ -7,11 +7,22 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list *ngFor="let orders of orderList.products">
-    <ion-avatar item-start>
-      <img width="50" height="50" src= {{orders.photo}}>
-    </ion-avatar>
-    <ion-item>{{orders.name}} {{orders.size}}
+
+  <ion-list *ngFor="let order of orderList.products">
+      <!-- <button ion-item *ngFor="let order of orderList.products" (click)="itemSelected(order)">
+          {{ order.name }}
+      </button>  -->
+    <ion-item> 
+      <ion-thumbnail item-start>
+        <img src= {{order.photo}}>
+      </ion-thumbnail>
+      <h2> {{order.name}}</h2>
+      <h3>Size {{order.size}}</h3>
+      <h3>Status {{order.status}}</h3>
+      <h3>Charges {{order.charges}}</h3>
     </ion-item>
   </ion-list>
+
+  <button ion-button color="dark">Status of Orders</button>
+
 </ion-content>
